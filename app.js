@@ -6,9 +6,9 @@
 
 // Objetos
 
-var jonas ={nome: "Jonas", vitorias: 0, empates: 1, derrotas: 1,  pontos: 0};
-var paulo ={nome: "Paulo", vitorias: 1, empates: 2, derrotas: 2,  pontos: 0};
-var bento ={nome: "Bento", vitorias: 2, empates: 3, derrotas: 0,  pontos: 0};
+var jonas ={nome: "Jonas", vitorias: 0, empates: 0, derrotas: 0,  pontos: 0};
+var paulo ={nome: "Paulo", vitorias: 0, empates: 0, derrotas: 0,  pontos: 0};
+var bento ={nome: "Bento", vitorias: 0, empates: 0, derrotas: 0,  pontos: 0};
 
 // Lista de jogadores
 var jogadores = [jonas, paulo, bento];
@@ -34,9 +34,9 @@ function seePointsInView(jogadores) {
         elemento += "<td> " + jogadores[i].empates +"</td>";
         elemento += "<td> " + jogadores[i].derrotas +"</td>";
         elemento += "<td> " + jogadores[i].pontos +"</td>";
-        elemento += "<td><button onClick='adicionarVitoria("+ i +")'>Vitória</button></td>";
-        elemento += "<td><button onClick='adicionarEmpate()'>Empate</button></td>";
-        elemento += "<td><button onClick='adicionarDerrota()'>Derrota</button></td></tr>";
+        elemento += "<td><button onClick='adicionarVitoria(" + i + ")'>Vitória</button></td>";
+        elemento += "<td><button onClick='adicionarEmpate( " + i + " )'>Empate</button></td>";
+        elemento += "<td><button onClick='adicionarDerrota(" + i + ")'>Derrota</button></td></tr>";
     }
     
     // escrever na tabela
@@ -44,12 +44,37 @@ function seePointsInView(jogadores) {
     tabela.innerHTML = elemento;   
 }
 
+// Adiciona vitoria e soma pontos
 function adicionarVitoria(i){
     var jogador = jogadores[i];
     jogador.vitorias ++;
     jogador.pontos = calcularPontos(jogador);
     seePointsInView(jogadores);
 }
+
+// adiciona derrotas e soma o ponto do empate
+function adicionarEmpate(i){
+    var jogador = jogadores[i];
+    jogador.empates ++;
+    jogador.pontos =  calcularPontos(jogador);
+    seePointsInView(jogadores);
+
+}
+// adiciona as derrotas de cada jogador
+function adicionarDerrota(i){
+    var jogador = jogadores[i];
+    jogador.derrotas ++;~
+    seePointsInView(jogadores);
+}
+
+function adicionarJogador(){
+    var jogador ={nome: "", vitorias: 0, empates: 0, derrotas: 0,  pontos: 0};
+    jogador.nome = (document.getElementById("nome").value);
+    jogadores.push(jogador);
+    seePointsInView(jogadores);
+    console.log (jogadores)
+}
+
 
 // chamada das funçoes
 seePointsInView(jogadores);
