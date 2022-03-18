@@ -54,4 +54,33 @@
     border: solid 1px white;
     color: white;
   }
+
+/* ----------- DIV ADICIONAR JOGADOR ------------------- */
+#inserirNomes{
+  /* width: 50%; /* largura do box */
+  padding: 0 30%; 
+  /* border: solid red;
+  border-width: 0 1%; /* borda à esquerda e à direita */
+  align-items: center; */
+  /* width: 100vw;
+  height: 100vh; */
+  /* background: #6C7A89; */
+  display: flex;
+}  
+
+
+  h2 {
+    color: white;
+    border: solid 1px white;
+    color: white;
+    
+  }
+
+  #inserirNomes, input{
+    border-radius: 5px;   
+  }
   
+  #inserirNomes, label{
+    color: white;
+    
+  }
